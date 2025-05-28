@@ -1,0 +1,22 @@
+<% layout("/layouts/boilerplate") %>
+
+<h2 class="mb-4">Search Results for "<%= query %>"</h2>
+
+<% if (listings.length === 0) { %>
+  <div class="alert alert-warning">No gyms found with that name.</div>
+<% } else { %>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <% listings.forEach(listing => { %>
+      <div class="col">
+        <div class="card h-100 shadow-sm">
+          <img src="<%= listing.image %>" class="card-img-top" alt="Gym Image" />
+          <div class="card-body">
+            <h5 class="card-title"><%= listing.title %></h5>
+            <p class="card-text"><strong>Price:</strong> ₹<%= listing.price %>/month</p>
+            <a href="/listings/<%= listing._id %>" class="btn btn-danger edit-btn mb-2 mx-2">View Details</a>
+          </div>
+        </div>
+      </div>
+    <% }) %>
+  </div>
+<% } %>
