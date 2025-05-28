@@ -37,7 +37,7 @@ app.use(express.static(path.join(__dirname, "/public")))
 
 
 const sessionOptions = {
-  secret: process.env.SECRET,
+  secret: "mysupersecret",
   resave: false,
   saveUninitialized: true,
   cookie:{
